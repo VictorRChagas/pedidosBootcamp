@@ -1,0 +1,22 @@
+<p-card header="Cliente">
+  <div class="pb-2 m-2 text-right">
+    <button pButton type="button" (click)="salvar()" label="Salvar" class="ui-button-raised"></button>
+  </div>
+  <div class="container">
+    <span class="ui-float-label mb-5">
+      <input id="nome" type="text" size="30" pInputText [(ngModel)]="cliente.nome">
+      <label for="nome">Nome</label>
+    </span>
+
+    <span class="ui-float-label mb-5">
+      <input id="cpf" type="text" size="30"  pInputText [(ngModel)]="cliente.cpf">
+      <label for="cpf">CPF</label>
+    </span>
+
+    <span class="ui-float-label mb-5">
+      <input id="telefone" type="text" size="30" pInputText [(ngModel)]="cliente.telefone">
+      <label for="telefone">Telefone</label>
+    </span>
+  </div>
+
+</p-card>

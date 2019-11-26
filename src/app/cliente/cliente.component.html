@@ -1,0 +1,35 @@
+<p-card header="Lista de Clientes">
+  <div class="pb-2 m-2 text-right">
+    <button [routerLink]="['form']" pButton type="button" label="Novo" class="ui-button-raised"></button>
+  </div>
+  <p-table  [columns]="columns" [value]="clienteList" (onLazyLoad)="carregarLista()" [lazy]="true" [loading]="loading">
+    <ng-template pTemplate="header" let-columns>
+      <tr>
+        <th *ngFor="let col of columns">
+          {{col.header}}
+        </th>
+        <th>Ações</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-cliente>
+      <tr>
+        <td>{{cliente.id}}</td>
+        <td>{{cliente.nome}}</td>
+        <td>{{cliente.cpf}}</td>
+        <td>{{cliente.telefone}}</td>
+        <td class="text-center">
+          <i title="Editar" class="pi pi-pencil" [routerLink]="['form']" [queryParams]="{ id: cliente.id }"></i>
+          <i title="Editar" class="pi pi-trash" (click)="deleteById(cliente.id)"></i>
+        </td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="emptymessage">
+      Sem registros.
+    </ng-template>
+    <ng-template pTemplate="summary">
+      {{clienteList?.length}} clientes.
+    </ng-template>
+  </p-table>
+
+  <p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle"></p-confirmDialog>
+</p-card>
