@@ -36,7 +36,7 @@ const routes: Routes = [
     path: 'pedido/form', component: PedidoFormComponent
   },
   {
-    path: 'pedido/detalhes-pedido', component: DetalhesPedidosComponent
+    path: 'pedido/detalhes', component: DetalhesPedidosComponent
   }
 ];
 

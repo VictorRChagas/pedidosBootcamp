@@ -23,6 +23,7 @@ export abstract class BaseService<T> {
   }
 
   save(t: T): Observable<T>{
+    console.log(this.getUrl())
     return this.http.post<T>(this.getUrl(), t);
   }
 

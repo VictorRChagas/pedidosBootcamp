@@ -13,4 +13,6 @@ export class ProdutoService extends BaseService<Produto>{
     super(http, 'produto');
   }
 
+
+
 }

@@ -22,9 +22,17 @@ export class ProdutoComponent extends ListComponent<Produto>{
     produtoService.findAll().subscribe( res => this.lista = res);
   }
 
+  carregarLista(): void {
+    this.loading = true;
+    this.produtoService.findAll().subscribe(res => {
+      this.lista = res;
+      this.loading = false;
+    });
+  }
+
   deleteById(id: number): void {
     this.confirmationService.confirm({
-      message: 'Tem certeza que deseja excluir o cliente?',
+      message: 'Tem certeza que deseja excluir o produto?',
       accept: () => this.delete(id),
       acceptLabel: 'Sim',
       rejectLabel: 'Não',
@@ -36,9 +44,10 @@ export class ProdutoComponent extends ListComponent<Produto>{
     this.produtoService.deleteById(id).subscribe(() => {
       this.messageService.add({
         severity: 'success',
-        summary: 'Cliente Deletado com Sucesso'
+        summary: 'Produto Deletado com Sucesso'
       });
-      this.router.navigateByUrl('cliente');
+      this.carregarLista();
+      this.router.navigateByUrl('produto');
     }, error => {
       this.messageService.add({
         severity: 'error',

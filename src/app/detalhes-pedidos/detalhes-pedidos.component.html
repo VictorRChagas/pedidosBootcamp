@@ -15,7 +15,7 @@
   <div class="pb-2 m-2 text-right">
     <button [routerLink]="['form']" pButton type="button" label="Novo" class="ui-button-raised"></button>
   </div>
-  <p-table  [columns]="columns" [value]="listPedidoItem" (onLazyLoad)="carregaLista()" [lazy]="true" [loading]="loading">
+  <p-table  [columns]="columns" [value]="pedido.pedidoItemList" (onLazyLoad)="carregaLista()" [lazy]="true" [loading]="loading">
     <ng-template pTemplate="header" let-columns>
       <tr>
         <th *ngFor="let col of columns">
@@ -26,7 +26,10 @@
     </ng-template>
     <ng-template pTemplate="body" let-pedido>
       <tr>
-
+        <td>{{pedido.produto.descricao}}</td>
+        <td>{{pedido.quantidade}}</td>
+        <td>{{pedido.desconto}}</td>
+        <td>{{pedido.produto.valorUnitario}}</td>
         <td class="text-center">
           <i title="Editar" class="pi pi-pencil" [routerLink]="['form']" [queryParams]="{ id: pedido.id }"></i>
           <i title="Excluir" class="pi pi-trash" (click)="deleteById(pedido.id)"></i>

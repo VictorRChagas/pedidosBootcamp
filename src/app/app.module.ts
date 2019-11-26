@@ -15,7 +15,7 @@ import {ToastModule} from "primeng/toast";
 import {ConfirmationService, MessageService} from "primeng/api";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {ConfirmDialogModule} from "primeng/confirmdialog";
-import {SidebarModule} from "primeng/primeng";
+import {DialogModule, DropdownModule, SidebarModule} from "primeng/primeng";
 import {SideBarService} from "./service/side-bar.service";
 import { ProdutoComponent } from './produto/produto.component';
 import { PedidoComponent } from './pedido/pedido.component';
@@ -48,7 +48,9 @@ import { DetalhesPedidosComponent } from './detalhes-pedidos/detalhes-pedidos.co
     ToastModule,
     BrowserAnimationsModule,
     ConfirmDialogModule,
-    SidebarModule
+    SidebarModule,
+    DropdownModule,
+    DialogModule
   ],
   providers: [MessageService, ConfirmationService, SideBarService],
   bootstrap: [AppComponent]

@@ -3,20 +3,27 @@
     <button pButton type="button" (click)="save()" label="Salvar" class="ui-button-raised"></button>
   </div>
   <div class="container">
-    <span class="ui-float-label mb-5">
-      <input id="cliente" type="text" size="30" pInputText [(ngModel)]="pedido.cliente">
-      <label for="cliente">Nome</label>
-    </span>
+    <p-card header="Dados do Pedido">
 
-    <span class="ui-float-label mb-5">
-      <input id="dataEmissao" type="text" size="30"  pInputText [(ngModel)]="pedido.dataEmissao">
-      <label for="dataEmissao">CPF</label>
-    </span>
+    </p-card>
 
-    <span class="ui-float-label mb-5">
-      <input id="itens" type="text" size="30" pInputText [(ngModel)]="pedido.pedidoItemList">
-      <label for="itens">Itens do Pedido</label>
-    </span>
+    <button type="button" (click)="showDialog()" pButton icon="pi pi-info-circle" label="Realizar Pedido"></button>
+
+    <p-dialog header="Item Pedido" [(visible)]="display" [style]="{width: '500px', height: '500px'}">
+        <p-dropdown [options]="produtosList" [(ngModel)]="produto" optionLabel="descricao"></p-dropdown>
+        <span class="ui-float-label mb-5">
+
+        </span>
+
+    </p-dialog>
+
+    <p-card header="Atribuição ao Cliente">
+      <p-dropdown [options]="clientesList" [(ngModel)]="cliente" optionLabel="nome"></p-dropdown>
+    </p-card>
+
+
+
+
   </div>
 
 </p-card>

@@ -19,7 +19,7 @@
         <td class="text-center">
           <i title="Editar" class="pi pi-pencil" [routerLink]="['form']" [queryParams]="{ id: pedido.id }"></i>
           <i title="Excluir" class="pi pi-trash" (click)="deleteById(pedido.id)"></i>
-          <i title="Editar" class="pi pi-trash" [routerLink]="['detalhes-pedido']" [queryParams]="{ id: pedido.id }" title="Ver Detalhes"></i>
+          <i class="pi pi-file-o" [routerLink]="['detalhes']" [queryParams]="{ id: pedido.id }" title="Ver Detalhes"></i>
         </td>
       </tr>
     </ng-template>
