@@ -1,4 +1,4 @@
-<p-card header="Lista de Clientes">
+<p-card header="Lista de Produtos">
   <div class="pb-2 m-2 text-right">
     <button [routerLink]="['form']" pButton type="button" label="Novo" class="ui-button-raised"></button>
   </div>
@@ -11,15 +11,13 @@
         <th>Ações</th>
       </tr>
     </ng-template>
-    <ng-template pTemplate="body" let-cliente>
+    <ng-template pTemplate="body" let-produto>
       <tr>
-        <td>{{cliente.id}}</td>
-        <td>{{cliente.nome}}</td>
-        <td>{{cliente.cpf}}</td>
-        <td>{{cliente.telefone}}</td>
+        <td>{{produto.descricao}}</td>
+        <td>{{produto.valorUnitario}}</td>
         <td class="text-center">
-          <i title="Editar" class="pi pi-pencil" [routerLink]="['form']" [queryParams]="{ id: cliente.id }"></i>
-          <i title="Editar" class="pi pi-trash" (click)="deleteById(cliente.id)"></i>
+          <i title="Editar" class="pi pi-pencil" [routerLink]="['form']" [queryParams]="{ id: produto.id }"></i>
+          <i title="Editar" class="pi pi-trash" (click)="deleteById(produto.id)"></i>
         </td>
       </tr>
     </ng-template>
@@ -27,7 +25,7 @@
       Sem registros.
     </ng-template>
     <ng-template pTemplate="summary">
-      {{lista?.length}} clientes.
+      {{lista?.length}} produtos.
     </ng-template>
   </p-table>
 

@@ -1,0 +1,46 @@
+<p-card header="Dados do Cliente">
+  <p>Codigo do cliente: {{pedido.cliente.id}}</p>
+  <p>Nome do cliente: {{pedido.cliente.nome}}</p>
+  <p>CPF do cliente: {{pedido.cliente.cpf}}</p>
+  <p>Telefone do cliente: {{pedido.cliente.telefone}}</p>
+</p-card>
+
+<p-card header="Dados do Pedido">
+  <p>Data de Emissao do Pedido{{pedido.dataEmissao}}</p>
+  <p>Total do Pedido: {{pedido.total}}</p>
+</p-card>
+
+
+<p-card header="Itens do Pedido">
+  <div class="pb-2 m-2 text-right">
+    <button [routerLink]="['form']" pButton type="button" label="Novo" class="ui-button-raised"></button>
+  </div>
+  <p-table  [columns]="columns" [value]="listPedidoItem" (onLazyLoad)="carregaLista()" [lazy]="true" [loading]="loading">
+    <ng-template pTemplate="header" let-columns>
+      <tr>
+        <th *ngFor="let col of columns">
+          {{col.header}}
+        </th>
+        <th>Ações</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-pedido>
+      <tr>
+
+        <td class="text-center">
+          <i title="Editar" class="pi pi-pencil" [routerLink]="['form']" [queryParams]="{ id: pedido.id }"></i>
+          <i title="Excluir" class="pi pi-trash" (click)="deleteById(pedido.id)"></i>
+          <i title="Editar" class="pi pi-trash" [routerLink]="['detalhes-pedido']" [queryParams]="{ id: pedido.id }" title="Ver Detalhes"></i>
+        </td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="emptymessage">
+      Sem registros.
+    </ng-template>
+    <ng-template pTemplate="summary">
+      {{listPedidoItem?.length}} pedidos.
+    </ng-template>
+  </p-table>
+
+  <p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle"></p-confirmDialog>
+</p-card>

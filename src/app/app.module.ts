@@ -17,13 +17,24 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {ConfirmDialogModule} from "primeng/confirmdialog";
 import {SidebarModule} from "primeng/primeng";
 import {SideBarService} from "./service/side-bar.service";
+import { ProdutoComponent } from './produto/produto.component';
+import { PedidoComponent } from './pedido/pedido.component';
+import { PedidoFormComponent } from './pedido/pedido-form/pedido-form.component';
+import {ProdutoFormComponent} from "./produto/produto-form/produto-form.component";
+import { DetalhesPedidosComponent } from './detalhes-pedidos/detalhes-pedidos.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     ClienteComponent,
-    ClienteFormComponent
+    ClienteFormComponent,
+    ProdutoComponent,
+    ProdutoFormComponent,
+    PedidoComponent,
+    PedidoFormComponent,
+    DetalhesPedidosComponent
   ],
   imports: [
     AccordionModule,

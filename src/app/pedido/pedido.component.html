@@ -1,8 +1,8 @@
-<p-card header="Lista de Clientes">
+<p-card header="Lista de Pedidos">
   <div class="pb-2 m-2 text-right">
     <button [routerLink]="['form']" pButton type="button" label="Novo" class="ui-button-raised"></button>
   </div>
-  <p-table  [columns]="columns" [value]="lista" (onLazyLoad)="carregarLista()" [lazy]="true" [loading]="loading">
+  <p-table  [columns]="columns" [value]="lista" (onLazyLoad)="carregaLista()" [lazy]="true" [loading]="loading">
     <ng-template pTemplate="header" let-columns>
       <tr>
         <th *ngFor="let col of columns">
@@ -11,15 +11,15 @@
         <th>Ações</th>
       </tr>
     </ng-template>
-    <ng-template pTemplate="body" let-cliente>
+    <ng-template pTemplate="body" let-pedido>
       <tr>
-        <td>{{cliente.id}}</td>
-        <td>{{cliente.nome}}</td>
-        <td>{{cliente.cpf}}</td>
-        <td>{{cliente.telefone}}</td>
+        <td>{{pedido.id}}</td>
+        <td>{{pedido.dataEmissao}}</td>
+        <td>{{pedido.total}}</td>
         <td class="text-center">
-          <i title="Editar" class="pi pi-pencil" [routerLink]="['form']" [queryParams]="{ id: cliente.id }"></i>
-          <i title="Editar" class="pi pi-trash" (click)="deleteById(cliente.id)"></i>
+          <i title="Editar" class="pi pi-pencil" [routerLink]="['form']" [queryParams]="{ id: pedido.id }"></i>
+          <i title="Excluir" class="pi pi-trash" (click)="deleteById(pedido.id)"></i>
+          <i title="Editar" class="pi pi-trash" [routerLink]="['detalhes-pedido']" [queryParams]="{ id: pedido.id }" title="Ver Detalhes"></i>
         </td>
       </tr>
     </ng-template>
@@ -27,7 +27,7 @@
       Sem registros.
     </ng-template>
     <ng-template pTemplate="summary">
-      {{lista?.length}} clientes.
+      {{lista?.length}} pedidos.
     </ng-template>
   </p-table>
 

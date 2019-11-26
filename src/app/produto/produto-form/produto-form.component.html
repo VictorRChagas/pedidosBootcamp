@@ -1,0 +1,17 @@
+<p-card header="Produto">
+  <div class="pb-2 m-2 text-right">
+    <button pButton type="button" (click)="save()" label="Salvar" class="ui-button-raised"></button>
+  </div>
+  <div class="container">
+    <span class="ui-float-label mb-5">
+      <input id="descricaoProduto" type="text" size="30" pInputText [(ngModel)]="produto.descricao">
+      <label for="descricaoProduto">Produto</label>
+    </span>
+
+    <span class="ui-float-label mb-5">
+      <input id="valorUnitario" type="text" size="30"  pInputText [(ngModel)]="produto.valorUnitario">
+      <label for="valorUnitario">Valor unitário</label>
+    </span>
+  </div>
+
+</p-card>

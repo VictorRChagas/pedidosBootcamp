@@ -1,10 +1,10 @@
 import {Injectable, OnDestroy} from '@angular/core';
-import {Observable, Subject} from "rxjs";
+import {BehaviorSubject, Observable, Subject} from "rxjs";
 
 @Injectable()
 export class SideBarService implements OnDestroy {
 
-  private topicoMostrarSideBar = new Subject<boolean>();
+  private topicoMostrarSideBar = new BehaviorSubject(false);
 
   constructor() {
 

@@ -3,22 +3,20 @@ import {ClienteService} from "../service/cliente.service";
 import {Cliente} from "../model/cliente";
 import {Router} from "@angular/router";
 import {ConfirmationService, MessageService} from "primeng/api";
+import {ListComponent} from "../component/list.component";
 
 @Component({
   selector: 'app-cliente',
   templateUrl: './cliente.component.html',
   styleUrls: ['./cliente.component.scss']
 })
-export class ClienteComponent {
-
-  clienteList: Cliente[];
-  columns: any[];
-  loading = false;
+export class ClienteComponent extends ListComponent<Cliente>{
 
   constructor(private clienteService: ClienteService,
               private messageService: MessageService,
               private router: Router,
               private confirmationService: ConfirmationService) {
+    super();
     this.columns = [{field: 'id', header: 'Codigo'}, {field: 'nome', header: 'Nome'}, {
       field: 'cpf',
       header: 'CPF'
@@ -28,7 +26,7 @@ export class ClienteComponent {
   carregarLista(): void {
     this.loading = true;
     this.clienteService.findAll().subscribe(res => {
-      this.clienteList = res;
+      this.lista = res;
       this.loading = false;
     });
   }

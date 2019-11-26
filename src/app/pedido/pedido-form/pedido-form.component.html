@@ -1,0 +1,22 @@
+<p-card header="Cliente">
+  <div class="pb-2 m-2 text-right">
+    <button pButton type="button" (click)="save()" label="Salvar" class="ui-button-raised"></button>
+  </div>
+  <div class="container">
+    <span class="ui-float-label mb-5">
+      <input id="cliente" type="text" size="30" pInputText [(ngModel)]="pedido.cliente">
+      <label for="cliente">Nome</label>
+    </span>
+
+    <span class="ui-float-label mb-5">
+      <input id="dataEmissao" type="text" size="30"  pInputText [(ngModel)]="pedido.dataEmissao">
+      <label for="dataEmissao">CPF</label>
+    </span>
+
+    <span class="ui-float-label mb-5">
+      <input id="itens" type="text" size="30" pInputText [(ngModel)]="pedido.pedidoItemList">
+      <label for="itens">Itens do Pedido</label>
+    </span>
+  </div>
+
+</p-card>

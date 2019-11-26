@@ -19,5 +19,9 @@ export class AppComponent implements OnInit{
     this.sideBarService.setMostrar(true);
   }
 
+  abrirFecharMenu(){
+    this.sideBarService.setMostrar(!this.displaySideBar);
+  }
+
 
 }
