@@ -2,7 +2,7 @@
   <div class="pb-2 m-2 text-right">
     <button [routerLink]="['form']" pButton type="button" label="Novo" class="ui-button-raised"></button>
   </div>
-  <p-table  [columns]="columns" [value]="lista" (onLazyLoad)="carregaLista()" [lazy]="true" [loading]="loading">
+  <p-table  [columns]="columns" [value]="lista" (onLazyLoad)="carregarLista()" [lazy]="true" [loading]="loading">
     <ng-template pTemplate="header" let-columns>
       <tr>
         <th *ngFor="let col of columns">

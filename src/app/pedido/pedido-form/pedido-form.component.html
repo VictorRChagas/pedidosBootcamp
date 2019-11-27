@@ -4,26 +4,36 @@
   </div>
   <div class="container">
     <p-card header="Dados do Pedido">
+      <p-calendar [(ngModel)]="pedido.dataEmissao" dateFormat="dd/MM/yyyy"></p-calendar>
+    </p-card>
 
+    <p-card header="Atribuição ao Cliente">
+      <p-dropdown [options]="clientesList" [(ngModel)]="pedido.cliente" optionLabel="nome"></p-dropdown>
     </p-card>
 
     <button type="button" (click)="showDialog()" pButton icon="pi pi-info-circle" label="Realizar Pedido"></button>
 
     <p-dialog header="Item Pedido" [(visible)]="display" [style]="{width: '500px', height: '500px'}">
-        <p-dropdown [options]="produtosList" [(ngModel)]="produto" optionLabel="descricao"></p-dropdown>
-        <span class="ui-float-label mb-5">
+        <p-dropdown [options]="produtosList" [(ngModel)]="pedidoItem.produto" optionLabel="descricao"></p-dropdown>
 
+        <span class="ui-float-label mt-5">
+          <input id="quantidadeProduto" type="number" size="30" pInputText [(ngModel)]="pedidoItem.quantidade">
+          <label for="quantidadeProduto">Quantidade de Produto</label>
         </span>
 
+      <span class="ui-float-label mt-5">
+          <input id="valorUnitario" type="number" size="30" pInputText [(ngModel)]="pedidoItem.valorUnitario">
+          <label for="valorUnitario">Valor Unitario</label>
+        </span>
+
+      <span class="ui-float-label mt-5">
+          <input id="desconto" type="number" size="30" pInputText [(ngModel)]="pedidoItem.desconto">
+          <label for="desconto">Desconto</label>
+      </span>
+
+      <button pButton type="button" (click)="setPedidoItem()" label="Salvar" style="margin-top: 10px" class="ui-button-raised"></button>
+
     </p-dialog>
-
-    <p-card header="Atribuição ao Cliente">
-      <p-dropdown [options]="clientesList" [(ngModel)]="cliente" optionLabel="nome"></p-dropdown>
-    </p-card>
-
-
-
-
   </div>
 
 </p-card>
